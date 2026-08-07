@@ -11,6 +11,9 @@ const VocabSchema = new Schema(
         german: {
             type: String,
             required: 'German word cannot be blank'
+        },
+        wrongCount: { 
+            type: Number, default: 0 
         }
     },
     { collection: 'vocab' }

@@ -38,5 +38,9 @@ export const api = {
   updateWord: handleError(async payload => {
     const res = await axios.put(baseURL + payload._id, payload);
     return res.data;
+  }),
+  incrementWrongCount: handleError(async word => {
+    const res = await axios.put(`${baseURL}${word._id}`, word);
+    return res.data;
   })
 };
