@@ -61,12 +61,12 @@ export default {
         this.flash('Wrong!', 'error', { timeout: 1000 });
         this.incorrectGuesses.push(this.currWord.german);
 
-        // Tăng số lần sai và lưu vào CSDL
-        const updatedWord = {
+        // inc wrong count in db
+        const ansWrong = {
           ...this.currWord,
           wrongCount: (this.currWord.wrongCount || 0) + 1
         };
-        await api.updateWord(updatedWord);
+        await api.incrementWrongCount(ansWrong);
       }
 
       this.english = '';
